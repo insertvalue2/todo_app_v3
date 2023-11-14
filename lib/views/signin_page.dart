@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app_v3/view_models/signin_view_model.dart';
+import 'package:todo_app_v3/views/signup_page.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
@@ -24,9 +25,12 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   Widget build(BuildContext context) {
+    // 1.추후 리버팟으로 변경
+    // view 는 view_model 참조 값 을 직접 가지고 있어야 한다.
+    SignInViewModel signInViewModel = SignInViewModel(); // 추후 수정
+
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
-    SignInViewModel signInViewModel = SignInViewModel(); // 추후 수정
 
     return Scaffold(
       appBar: AppBar(
@@ -73,11 +77,16 @@ class _SignInPageState extends State<SignInPage> {
               obscureText: true, // 비밀번호 숨기기
             ),
             const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text('SIGN-IN'),
+            ),
             TextButton(
               onPressed: () {
-                //회원 가입 화면 으로 이동하는 코드 작성 예정
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => SignUpPage()));
               },
-              child: const Text('SIGN UP',
+              child: const Text('New user? Create an account',
                   style: TextStyle(color: Colors.white, fontSize: 18)),
             ),
             const SizedBox(height: 40),

@@ -14,7 +14,7 @@ class MyTodoApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SafeArea(
-        child: SignInPage(),
+        child: SignUpPage(),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app_v3/view_models/signup_view_model.dart';
+import 'package:todo_app_v3/views/signin_page.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -70,9 +71,14 @@ class _SignUpPageState extends State<SignUpPage> {
               decoration: inputDecoration.copyWith(hintText: 'EMAIL'),
             ),
             const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text('SIGN-UP'),
+            ),
             TextButton(
               onPressed: () {
-                // 로그인 화면으로 이동하는 코드 작성 예정
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => SignInPage()));
               },
               child: const Text(
                 'Already have an account? Sign in here.',
